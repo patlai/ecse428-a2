@@ -36,3 +36,8 @@ buildNumber.properties
 hs_err_pid*
 
 password.txt
+driver/
+.DS_Store
+.idea/*.iws
+.idea/workspace.xml
+.idea/tasks.xml
