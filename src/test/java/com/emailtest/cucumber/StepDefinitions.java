@@ -27,14 +27,15 @@ public class StepDefinitions {
     private final String OUTLOOK_URL = "https://outlook.live.com/owa/";
     private final String EMAIL_LOGIN = "tester113355@outlook.com";
     private String emailPassword = "";
+    private String currentRecipient = "";
 
-    private final String EMAIL_TEST_SUBJECT = "ECSE 428 Assignment 2 test email";
+    private final String RECIPIENT_A = "patricklai10123@gmail.com";
+    private final String RECIPIENT_B = "yu-yueh.liu@mail.mcgill.ca";
+    private final String EMAIL_TEST_SUBJECT = "ECSE-428 A2 test email";
     private final String NO_RECIPIENT_ERROR = "This message must have at least one recipient.";
     private final String NO_SUBJECT_WARNING = "Missing subject";
 
     private final int DEFAULT_DRIVER_TIMEOUT = 10;
-    private final int PAGE_LOAD_TIMEOUT = 2;
-
 
     /**
      * Starts ChromeDriver
@@ -65,7 +66,6 @@ public class StepDefinitions {
         if (file.exists()){
             BufferedReader br = new BufferedReader(new FileReader(file));
             emailPassword = br.readLine();
-            System.out.println(emailPassword);
         }
     }
 
@@ -76,8 +76,8 @@ public class StepDefinitions {
      */
     private void waitForPageLoad() throws InterruptedException {
        System.out.println("waiting for page to load");
-//        TimeUnit.SECONDS.sleep(PAGE_LOAD_TIMEOUT);
-        ExpectedCondition<Boolean> waitCondition = new ExpectedCondition<Boolean>() {
+
+       ExpectedCondition<Boolean> waitCondition = new ExpectedCondition<Boolean>() {
             @NullableDecl
             public Boolean apply(@NullableDecl WebDriver webDriver) {
                 return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
@@ -159,12 +159,12 @@ public class StepDefinitions {
 
     @And("^I add recipient A$")
     public void addRecipientA() throws InterruptedException{
-        addRecipient("patricklai10123@gmail.com");
+        addRecipient(RECIPIENT_A);
     }
 
     @And("^I add recipient B$")
     public void addRecipientB() throws InterruptedException{
-        addRecipient("B");
+        addRecipient(RECIPIENT_B);
     }
 
     @And("^I attach image 1$")
@@ -179,7 +179,9 @@ public class StepDefinitions {
 
     @And("^I add a subject$")
     public void addSubject(){
-        driver.findElement(By.id("subjectLine0")).sendKeys(EMAIL_TEST_SUBJECT);
+        new WebDriverWait(driver, DEFAULT_DRIVER_TIMEOUT)
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("subjectLine0")))
+                .sendKeys(EMAIL_TEST_SUBJECT);
     }
 
     @And("^I press Send$")
@@ -202,7 +204,8 @@ public class StepDefinitions {
         driver.findElement(By.xpath("//div[@title='Sent Items']")).click();
         new WebDriverWait(driver, DEFAULT_DRIVER_TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='Empty folder']")));
 
-        if (!driver.getPageSource().contains(EMAIL_TEST_SUBJECT)){
+        // check that the sent items page contains the subject and recipient of the email that was just sent
+        if (!(driver.getPageSource().contains(EMAIL_TEST_SUBJECT)) && driver.getPageSource().contains(currentRecipient)){
             driver.close();
             throw new Error("Email was not sent");
         }
@@ -213,13 +216,16 @@ public class StepDefinitions {
      * Makes sure that the right warning message was shown when an email is sent without a subject
      */
     @Then("^a Missing Subject popup appears asking if you want to send this message without a subject$")
-    public void noSubjectWarningMessage(){
+    public void noSubjectWarningMessage() throws InterruptedException{
+        waitForPageLoad();
         if(!driver.getPageSource().contains(NO_SUBJECT_WARNING)){
             driver.close();
             throw new Error("No subject warning message was not displayed properly");
         }
 
-        driver.findElement(By.xpath("//div[text()='Don't send']")).click();
+        // Check that the warning with a don't send button appears, then click don't send
+        //driver.findElement(By.xpath("//div[contains(@text, \"Don't send\")]")).click();
+        driver.findElement(By.id("id__311")).click();
         checkLogin();
         driver.close();
     }
@@ -229,7 +235,8 @@ public class StepDefinitions {
      * Makes sure that an error shows up saying that there are no recipients to an email being sent
      */
     @Then("^an error message saying This message must have at least one recipient appears$")
-    public void noRecipientErrorMessage(){
+    public void noRecipientErrorMessage() throws InterruptedException{
+        waitForPageLoad();
         if(!driver.getPageSource().contains(NO_RECIPIENT_ERROR)){
             driver.close();
             throw new Error("Recipient error message was not displayed properly");
@@ -246,6 +253,8 @@ public class StepDefinitions {
      * @throws InterruptedException
      */
     private void addRecipient(String recipient) throws InterruptedException{
+        currentRecipient = recipient;
+
         new WebDriverWait(driver, DEFAULT_DRIVER_TIMEOUT)
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='ms-BasePicker-input pickerInput_269bfa71']")))
                 .sendKeys(recipient);
