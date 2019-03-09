@@ -32,15 +32,15 @@ Feature: Outlook
     Then the email is sent with an image attached to it
 
   #Alternate Flow:
-  Scenario: Send a new email with images A and B attached to recipient B
-    Given I am logged in to outlook
-    When I press on New Message
-    And I add recipient B
-    And I add a subject
-    And I attach image 1
-    And I attach image 2
-    And I press Send
-    Then the email is sent with an image attached to it
+#  Scenario: Send a new email with images A and B attached to recipient B
+#    Given I am logged in to outlook
+#    When I press on New Message
+#    And I add recipient B
+#    And I add a subject
+#    And I attach image 1
+#    And I attach image 2
+#    And I press Send
+#    Then the email is sent with an image attached to it
 
   #Error Flow:
   Scenario: Send a new email with image 1 attached, without a recipient

@@ -25,17 +25,17 @@ public class StepDefinitions {
 
     private final String DRIVER_PATH = "driver/chromedriver";
     private final String OUTLOOK_URL = "https://outlook.live.com/owa/";
-    private final String EMAIL_LOGIN = "tester113355@outlook.com";
+    private String emailLogin = "";
     private String emailPassword = "";
     private String currentRecipient = "";
 
-    private final String RECIPIENT_A = "patricklai10123@gmail.com";
+    private final String RECIPIENT_A = "patrick.lai@mail.mcgill.ca";
     private final String RECIPIENT_B = "yu-yueh.liu@mail.mcgill.ca";
     private final String EMAIL_TEST_SUBJECT = "ECSE-428 A2 test email";
     private final String NO_RECIPIENT_ERROR = "This message must have at least one recipient.";
     private final String NO_SUBJECT_WARNING = "Missing subject";
 
-    private final int DEFAULT_DRIVER_TIMEOUT = 10;
+    private final int DEFAULT_DRIVER_TIMEOUT = 20;
 
     /**
      * Starts ChromeDriver
@@ -65,6 +65,7 @@ public class StepDefinitions {
 
         if (file.exists()){
             BufferedReader br = new BufferedReader(new FileReader(file));
+            emailLogin = br.readLine();
             emailPassword = br.readLine();
         }
     }
@@ -139,7 +140,7 @@ public class StepDefinitions {
         driver.findElement(By.className("officeHeaderMenu")).click();
         waitForPageLoad();
 
-        waitForElementById("i0116").sendKeys(EMAIL_LOGIN);
+        waitForElementById("i0116").sendKeys(emailLogin);
         waitForElementById("idSIButton9").click();
         waitForElementById("i0118").sendKeys(emailPassword);
         waitForElementById("idSIButton9").click();
@@ -224,8 +225,8 @@ public class StepDefinitions {
         }
 
         // Check that the warning with a don't send button appears, then click don't send
-        //driver.findElement(By.xpath("//div[contains(@text, \"Don't send\")]")).click();
-        driver.findElement(By.id("id__311")).click();
+        driver.findElement(By.xpath("//div[text()=\"Don't send\"]")).click();
+        //driver.findElement(By.id("id__665")).click();
         checkLogin();
         driver.close();
     }
