@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9265c52c-362b-4396-ad7f-1fa1c756c464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/outlook.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emailtest/cucmber/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/emailtest/cucumber/StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/outlook.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/emailtest/cucumber/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/emailtest/cucumber/StepDefinitions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,14 +26,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="feature" value="44" />
-          <entry key="java" value="4824" />
+          <entry key="java" value="6533" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Cucumber" value="44" />
-          <entry key="JAVA" value="4824" />
+          <entry key="JAVA" value="6533" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -69,14 +65,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/emailtest/cucumber/StepDefinitions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="258">
+              <caret line="261" column="19" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3859#3860#0" expanded="true" />
-                <element signature="e#3934#3935#0" expanded="true" />
-                <element signature="e#4459#4460#0" expanded="true" />
-                <element signature="e#4545#4546#0" expanded="true" />
+                <element signature="e#2565#2847#0" expanded="true" />
+                <element signature="e#2846#2847#0" expanded="true" />
+                <element signature="e#3657#3658#0" expanded="true" />
+                <element signature="e#3715#3716#0" expanded="true" />
+                <element signature="e#4348#4349#0" expanded="true" />
+                <element signature="e#4434#4435#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,6 +108,11 @@
       <find>.CLASS</find>
       <find>waitforpage</find>
       <find>sent</find>
+      <find>waitforpageload</find>
+      <find>.until</find>
+      <find>waitforpageload()</find>
+      <find>waitForPageLoad()</find>
+      <find>addPicture(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -238,7 +241,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552120784993" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552161519816" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -343,23 +346,11 @@
       <option name="presentableId" value="Default" />
       <updated>1552104749267</updated>
       <workItem from="1552104751356" duration="5357000" />
-      <workItem from="1552115147515" duration="4825000" />
+      <workItem from="1552115147515" duration="6803000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 03m 22s.xml">
-      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 10m 36s.xml">
-      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 14m 32s.xml">
-      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 18m 02s.xml">
-      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 21m 28s.xml">
       <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -378,9 +369,21 @@
     <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 37m 13s.xml">
       <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
+    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 03h 39m 26s.xml">
+      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 14h 50m 05s.xml">
+      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 14h 54m 22s.xml">
+      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__outlook_(1) - 2019.03.09 at 14h 55m 47s.xml">
+      <configuration name="Feature: outlook (1)" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10182000" />
+    <option name="totallyTimeSpent" value="12160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -439,14 +442,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/emailtest/cucumber/StepDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
+        <state relative-caret-position="258">
+          <caret line="261" column="19" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
-            <element signature="e#3934#3935#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
-            <element signature="e#4545#4546#0" expanded="true" />
+            <element signature="e#2565#2847#0" expanded="true" />
+            <element signature="e#2846#2847#0" expanded="true" />
+            <element signature="e#3657#3658#0" expanded="true" />
+            <element signature="e#3715#3716#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+            <element signature="e#4434#4435#0" expanded="true" />
           </folding>
         </state>
       </provider>
