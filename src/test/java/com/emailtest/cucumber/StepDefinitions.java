@@ -23,7 +23,7 @@ public class StepDefinitions {
 
     private WebDriver driver;
 
-    private final String DRIVER_PATH = "/Users/patricklai/dropbox/u4/ECSE 428/assignment b/driver/chromedriver";
+    private final String DRIVER_PATH = "driver/chromedriver";
     private final String OUTLOOK_URL = "https://outlook.live.com/owa/";
     private final String EMAIL_LOGIN = "tester113355@outlook.com";
     private String emailPassword = "";
