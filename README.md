@@ -1,0 +1,3 @@
+# McGill ECSE 428: Software Engineering practice - Assignment 2
+In this assignment, we are using Selenium Web Driver for Chrome to automate acceptance testing of an email service.
+We have chosen to test outlook.com's web client by sending emails with different combinations between two recipients and two image attachments. We are using the Cucumber plugin for Java along with Gherkin step definitions to specifiy the tests. All these tools can be downloaded via the JetBrain's plugin window in IntelliJ Idea. The Gherkin feature can be found in `src/test/resources` and the step definitions in `src/test/java/com/emailtest/cucumber`
