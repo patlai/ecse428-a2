@@ -17,7 +17,6 @@ import cucumber.api.java.en.Then;
 
 import java.awt.*;
 import java.io.*;
-import java.util.concurrent.TimeUnit;
 
 public class StepDefinitions {
 
@@ -75,7 +74,7 @@ public class StepDefinitions {
      * Waits for a page to load by querying the ready state of the DOM through javascript
      * @throws InterruptedException
      */
-    private void waitForPageLoad() throws InterruptedException {
+    private void waitForPageLoad() {
        System.out.println("waiting for page to load");
 
        ExpectedCondition<Boolean> waitCondition = new ExpectedCondition<Boolean>() {
@@ -226,7 +225,6 @@ public class StepDefinitions {
 
         // Check that the warning with a don't send button appears, then click don't send
         driver.findElement(By.xpath("//div[text()=\"Don't send\"]")).click();
-        //driver.findElement(By.id("id__665")).click();
         checkLogin();
         driver.close();
     }
